@@ -1,8 +1,7 @@
-import { userParams, userNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function ProductDetails() {
-  const { productId } = userParams();
-  const navigate = userNavigate();
+  const { productId } = useParams();
 
   return (
     <div className="product-details-page">
@@ -10,3 +9,5 @@ function ProductDetails() {
     </div>
   );
 }
+
+export default ProductDetails;

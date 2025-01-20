@@ -9,20 +9,20 @@ function Products() {
   ];
 
   return (
-    <div className="page product">
-      <h1>product page</h1>
+    <div className="page products">
+      <h1>Products</h1>
 
       <div className="products-container">
-        <div>
+        <div className="products-list">
           <h2>Product list</h2>
           {products.map((product) => (
-            <link
+            <Link
               key={product.id}
               to={`/products/${product.id}`}
               className="product-link"
             >
               {product.name}
-            </link>
+            </Link>
           ))}
         </div>
       </div>
