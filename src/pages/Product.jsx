@@ -25,6 +25,9 @@ function Products() {
             </Link>
           ))}
         </div>
+        <div className="product-details">
+          <Outlet />
+        </div>
       </div>
     </div>
   );
