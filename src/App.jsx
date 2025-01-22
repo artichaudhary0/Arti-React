@@ -6,6 +6,7 @@ import Contact from "./pages/Contact";
 import Products from "./pages/Product";
 import "./App.css";
 import ProductDetails from "./pages/ProductDetails";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
             <Route path="/products" element={<Products />}>
               <Route path=":productId" element={<ProductDetails />} />
             </Route>
+
+            <Route path="/register" element={<Register />} />
 
             <Route
               path="*"
