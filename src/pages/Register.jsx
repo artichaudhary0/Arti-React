@@ -45,7 +45,7 @@ function Register() {
               type="email"
               id="email"
               value={email}
-              onChange={setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
             />
           </div>
@@ -56,7 +56,7 @@ function Register() {
               type="password"
               id="password"
               value={password}
-              onChange={setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
             />
           </div>
@@ -67,7 +67,7 @@ function Register() {
               type="password"
               id="confirmPassword"
               value={confirmPassword}
-              onChange={setConfirmPassword(e.target.value)}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="Enter your confirm Password"
             />
           </div>

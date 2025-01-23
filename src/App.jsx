@@ -8,38 +8,41 @@ import "./App.css";
 import ProductDetails from "./pages/ProductDetails";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="app">
-        <Navbar />
-        <main className="content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
+    <AuthProvider>
+      <BrowserRouter>
+        <div className="app">
+          <Navbar />
+          <main className="content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
 
-            <Route path="/products" element={<Products />}>
-              <Route path=":productId" element={<ProductDetails />} />
-            </Route>
+              <Route path="/products" element={<Products />}>
+                <Route path=":productId" element={<ProductDetails />} />
+              </Route>
 
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
 
-            <Route
-              path="*"
-              element={
-                <div className="page">
-                  <h1>404-Page not found</h1>
-                  <p> The page you're looking for does not exist</p>
-                </div>
-              }
-            />
-          </Routes>
-        </main>
-      </div>
-    </BrowserRouter>
+              <Route
+                path="*"
+                element={
+                  <div className="page">
+                    <h1>404-Page not found</h1>
+                    <p> The page you're looking for does not exist</p>
+                  </div>
+                }
+              />
+            </Routes>
+          </main>
+        </div>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

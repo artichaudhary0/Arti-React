@@ -15,6 +15,7 @@ function Login() {
 
     if (!email || !password) {
       setError("All fields required");
+      return;
     }
 
     try {
@@ -31,14 +32,14 @@ function Login() {
 
       {error && <div className="error-message">{error}</div>}
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email : </label>
           <input
             type="email"
             id="email"
             value={email}
-            onChange={setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
           />
         </div>
@@ -49,7 +50,7 @@ function Login() {
             type="password"
             id="password"
             value={password}
-            onChange={setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter your password"
           />
 

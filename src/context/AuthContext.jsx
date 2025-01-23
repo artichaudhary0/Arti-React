@@ -1,8 +1,8 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { Children, createContext, useContext, useState } from "react";
 
 const AuthContext = createContext(null); // create context for Auth
 
-export const AuthProvider = ({ childern }) => {
+export const AuthProvider = ({ children }) => {
   // get the user from LS and pass it to useState
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem("user"); // get the user from local storage
@@ -68,7 +68,7 @@ export const AuthProvider = ({ childern }) => {
 
   return (
     <AuthContext.Provider value={{ user, register, login, logout }}>
-      {childern}
+      {children}
     </AuthContext.Provider>
   );
 };
