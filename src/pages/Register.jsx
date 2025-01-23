@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-// import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -8,7 +8,7 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  // const { register } = useAuth();
+  const { register } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,8 +25,8 @@ function Register() {
     }
 
     try {
-      // await register(email, password);
-      navigate("/");
+      await register(email, password);
+      navigate("/login");
     } catch (error) {
       setError(error.message);
     }
@@ -45,7 +45,7 @@ function Register() {
               type="email"
               id="email"
               value={email}
-              // onChange={setEmail(e.target.value)}
+              onChange={setEmail(e.target.value)}
               placeholder="Enter your email"
             />
           </div>
@@ -56,7 +56,7 @@ function Register() {
               type="password"
               id="password"
               value={password}
-              // onChange={setPassword(e.target.value)}
+              onChange={setPassword(e.target.value)}
               placeholder="Enter your password"
             />
           </div>
@@ -67,7 +67,7 @@ function Register() {
               type="password"
               id="confirmPassword"
               value={confirmPassword}
-              // onChange={setConfirmPassword(e.target.value)}
+              onChange={setConfirmPassword(e.target.value)}
               placeholder="Enter your confirm Password"
             />
           </div>

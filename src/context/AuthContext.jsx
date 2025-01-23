@@ -42,4 +42,42 @@ export const AuthProvider = ({ childern }) => {
     setUser(userWithoutPassword);
     localStorage.setItem("user", JSON.stringify(userWithoutPassword));
   };
+
+  const login = async (email, password) => {
+    const user = users.find(
+      (u) => u.email === email && u.password === password
+    );
+
+    if (!user) {
+      throw new Error("Invalid Credentails");
+    }
+
+    const userWithoutPassword = {
+      id: user.id,
+      email: user.email,
+    };
+
+    setUser(userWithoutPassword);
+    localStorage.setItem("user", JSON.stringify(userWithoutPassword));
+  };
+
+  const logout = () => {
+    setUser(null);
+    localStorage.removeItem("user");
+  };
+
+  return (
+    <AuthContext.Provider value={{ user, register, login, logout }}>
+      {childern}
+    </AuthContext.Provider>
+  );
+};
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+
+  if (!context) {
+    throw new Error("userAuth must be used within an AuthProvider");
+  }
+  return context;
 };

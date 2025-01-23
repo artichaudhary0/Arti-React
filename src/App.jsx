@@ -7,6 +7,7 @@ import Products from "./pages/Product";
 import "./App.css";
 import ProductDetails from "./pages/ProductDetails";
 import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             </Route>
 
             <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
 
             <Route
               path="*"
